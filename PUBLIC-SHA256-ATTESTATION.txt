@@ -3,6 +3,7 @@ Vendor Repository (Private Vault): github.com/guadalupelopezjose96-coder/macro-s
 Public Showcase Repository:        github.com/guadalupelopezjose96-coder/macro-saas-blueprint-showcase
 ED25519 Signing Key Fingerprint:   SHA256:KwUySdN/G/MP10KULN+FYsyZ9XyNS9osjmNHbBEvE3s
 
+97a2a1ac4e22617dbcb057dcaab66a625b2315e0472494bec01ca6b0af0c9f7a  macro-saas-architecture-v1.9.0-sub-micro-primitives.tar.gz
 851761aea74d6961d430aae80ef606963f9c002a2623263bd1af3835d03c8cc2  macro-saas-architecture-v1.8.0-micro-sub-utilities.tar.gz
 8f79e4b183fa23bb59d217845db22727390f8d6315dab138532e048c1f89e143  macro-saas-architecture-v1.7.0-sub-macro-conglomerate.tar.gz
 73db0f4e05dd83a29d43f14beb6c3acc6925a0d2d5f20f51d7a7b78f42f96927  macro-saas-architecture-v1.6.0-macro-sub-utilities.tar.gz
@@ -10,4 +11,4 @@ edddafe5585f5500f1fba0b5e470e0e8de0f7a799bac4984227a0e5ad17b61de  macro-saas-arc
 1e7643fbe2477a596d48a6c178e2c6d97feab501c8c35505294f711ab6117033  macro-saas-architecture-v1.4.0-master-treatise.tar.gz
 9ee43e54dcef0d342804c4b7e5caf53dc944e5cf1f77005765aabcec97235963  macro-saas-architecture-v1.3.1-fulfillment.tar.gz
 b2bd0e86ffbc4d918c878c01bb3ffb93c98ec4b946a84ad7707c4a368d3ec55  macro-saas-architecture-v1.3.0-cloudflare-edge.tar.gz
-d691f4f1ed8b7d6ad7a38ae8117ad741a923c662b0e435970faab4733dd11ac3  SHA256SUMS.txt (v1.8.0 Master Manifest)
+235af1684d620bf80f25c9b9f1f2ba68d4727b981f3a0472ea5d217ade57adbb  SHA256SUMS.txt (v1.9.0 Master Manifest)
