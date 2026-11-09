@@ -12,4 +12,4 @@ edddafe5585f5500f1fba0b5e470e0e8de0f7a799bac4984227a0e5ad17b61de  macro-saas-arc
 1e7643fbe2477a596d48a6c178e2c6d97feab501c8c35505294f711ab6117033  macro-saas-architecture-v1.4.0-master-treatise.tar.gz
 9ee43e54dcef0d342804c4b7e5caf53dc944e5cf1f77005765aabcec97235963  macro-saas-architecture-v1.3.1-fulfillment.tar.gz
 b2bd0e86ffbc4d918c878c01bb3ffb93c98ec4b946a84ad7707c4a368d3ec55  macro-saas-architecture-v1.3.0-cloudflare-edge.tar.gz
-e260483d8a40700d798943fee250e7739bce7223258997dfd91ee0b0a692f61a  SHA256SUMS.txt (v2.0.0 Master Manifest)
+e58ce6a0b3405a5ad2933b5a6ea3b89b5facd359fb2a5f6be0fa79b1244231e1  SHA256SUMS.txt (v2.0.0 Master Manifest)
