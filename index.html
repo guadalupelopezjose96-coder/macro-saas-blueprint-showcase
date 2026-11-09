@@ -55,32 +55,62 @@
       border: 1px solid var(--border);
       border-radius: 10px;
       padding: 1.75rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
     .card h3 { color: var(--accent-blue); margin-bottom: 0.5rem; font-size: 1.2rem; }
     .price { font-size: 2rem; font-weight: 800; color: var(--text); margin: 0.75rem 0; }
     .sku { font-family: monospace; color: var(--accent); font-size: 0.85rem; }
-    ul { list-style: none; margin-top: 1rem; }
+    ul { list-style: none; margin-top: 1rem; margin-bottom: 1.25rem; }
     ul li { margin-bottom: 0.5rem; color: var(--muted); font-size: 0.92rem; }
     ul li::before { content: "✓ "; color: var(--success); font-weight: bold; }
-    .crypto-box {
+    .crypto-box, .order-box {
       background: #090d16;
       border: 1px solid var(--border);
       border-radius: 10px;
-      padding: 1.5rem;
+      padding: 1.75rem;
+      margin-bottom: 2rem;
+    }
+    .crypto-box {
       font-family: monospace;
       font-size: 0.85rem;
       overflow-x: auto;
       color: #d1d5db;
     }
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    label { display: block; font-size: 0.85rem; color: var(--muted); margin-bottom: 0.35rem; }
+    input, select {
+      width: 100%;
+      padding: 0.65rem;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      background: #111827;
+      color: var(--text);
+      font-size: 0.92rem;
+    }
     .btn {
       display: inline-block;
-      margin-top: 1.25rem;
+      margin-top: 1rem;
       padding: 0.75rem 1.4rem;
       background: var(--accent);
       color: #fff;
       text-decoration: none;
       font-weight: 700;
       border-radius: 6px;
+      border: none;
+      cursor: pointer;
+      text-align: center;
+    }
+    .btn-secondary {
+      background: #1f2937;
+      border: 1px solid var(--accent-blue);
+      color: var(--accent-blue);
     }
   </style>
 </head>
@@ -93,51 +123,92 @@
         Infraestructura celular llave en mano (Terraform, Kubernetes, Cilium eBPF, Tetragon, Cloudflare Anycast/Workers/R2),
         Motor Financiero ASC 606 / Gross-Up, Onboarding Post-Cuántico (FIPS 203 ML-KEM) y Evidencia Continua SOC 2 / ISO 27001 / DORA.
       </p>
-      <a class="btn" href="https://github.com/guadalupelopezjose96-coder/macro-saas-blueprint-showcase">Ver Especificación Técnica y Licencias B2B</a>
+      <a class="btn" href="#b2b-order-portal">Adquirir Licencia Comercial o Solicitar Permuta Cloud</a>
+      <a class="btn btn-secondary" href="https://github.com/guadalupelopezjose96-coder/macro-saas-blueprint-showcase" style="margin-left:0.5rem;">Repositorio y Prueba SHA-256</a>
     </header>
 
     <div class="grid">
       <div class="card">
-        <div class="sku">SKU: MACRO-SAAS-BP-TEAM</div>
-        <h3>Standard Engineering Team</h3>
-        <div class="price">$2,490 USD</div>
-        <p style="color: var(--muted); font-size: 0.9rem;">Licencia comercial perpetua (Hasta 3 celdas de producción).</p>
-        <ul>
-          <li>Módulos Terraform Multi-Región (US &amp; EU)</li>
-          <li>Kubernetes Distroless, Kyverno SLSA L4 &amp; Argo Rollouts</li>
-          <li>Cilium eBPF L7 Zero-Trust &amp; Tetragon Runtime Sigkill</li>
-          <li>OpenTelemetry GDPR/PCI Redaction Pipeline</li>
-          <li>PostgreSQL Double-Entry Ledger con Forced RLS</li>
-        </ul>
+        <div>
+          <div class="sku">SKU: MACRO-SAAS-BP-TEAM</div>
+          <h3>Standard Engineering Team</h3>
+          <div class="price">$2,490 USD</div>
+          <p style="color: var(--muted); font-size: 0.9rem;">Licencia comercial perpetua (Hasta 3 celdas de producción).</p>
+          <ul>
+            <li>Módulos Terraform Multi-Región (US &amp; EU)</li>
+            <li>Kubernetes Distroless, Kyverno SLSA L4 &amp; Argo Rollouts</li>
+            <li>Cilium eBPF L7 Zero-Trust &amp; Tetragon Runtime Sigkill</li>
+            <li>OpenTelemetry GDPR/PCI Redaction Pipeline</li>
+            <li>PostgreSQL Double-Entry Ledger con Forced RLS</li>
+          </ul>
+        </div>
+        <button class="btn" onclick="selectTier('MACRO-SAAS-BP-TEAM ($2,490 USD)')">Seleccionar Standard Team</button>
       </div>
 
       <div class="card" style="border-color: var(--accent);">
-        <div class="sku">SKU: MACRO-SAAS-BP-ENTERPRISE</div>
-        <h3>Full Enterprise &amp; FinOps/Legal Suite</h3>
-        <div class="price">$7,900 USD</div>
-        <p style="color: var(--muted); font-size: 0.9rem;">Celdas ilimitadas + 1 año de actualizaciones firmadas.</p>
-        <ul>
-          <li>Incluye todo el nivel Standard Team</li>
-          <li>Módulo Nativo Cloudflare Anycast, Workers KV &amp; R2 Zero-Egress</li>
-          <li>Motor Contable Python ASC 606, Retenciones LatAm &amp; Gross-Up</li>
-          <li>Onboarding Zero-Touch (OFAC SDN + FIPS 203 ML-KEM-1024)</li>
-          <li>Simulador de Caos Multi-AZ y Reporte Regulatorio DORA / NIS2</li>
-          <li>Contratos B2B: MSA, SLA 99.999% y DPA (GDPR / EU Data Act)</li>
-        </ul>
+        <div>
+          <div class="sku">SKU: MACRO-SAAS-BP-ENTERPRISE</div>
+          <h3>Full Enterprise &amp; FinOps/Legal Suite</h3>
+          <div class="price">$7,900 USD</div>
+          <p style="color: var(--muted); font-size: 0.9rem;">Celdas ilimitadas + 1 año de actualizaciones firmadas.</p>
+          <ul>
+            <li>Incluye todo el nivel Standard Team</li>
+            <li>Módulo Nativo Cloudflare Anycast, Workers KV &amp; R2 Zero-Egress</li>
+            <li>Motor Contable Python ASC 606, Retenciones LatAm &amp; Gross-Up</li>
+            <li>Onboarding Zero-Touch (OFAC SDN + FIPS 203 ML-KEM-1024)</li>
+            <li>Simulador de Caos Multi-AZ y Reporte Regulatorio DORA / NIS2</li>
+            <li>Contratos B2B: MSA, SLA 99.999% y DPA (GDPR / EU Data Act)</li>
+          </ul>
+        </div>
+        <button class="btn" onclick="selectTier('MACRO-SAAS-BP-ENTERPRISE ($7,900 USD)')">Seleccionar Full Enterprise</button>
       </div>
 
       <div class="card">
-        <div class="sku">SKU: MACRO-SAAS-BP-AGENCY-OEM</div>
-        <h3>Consultancy, OEM &amp; Cloud Barter</h3>
-        <div class="price">$19,500 USD/año</div>
-        <p style="color: var(--muted); font-size: 0.9rem;">Habilitado para Consultoras DevSecOps y Permuta B2B (ASC 606).</p>
-        <ul>
-          <li>Derecho de despliegue hasta en 25 clientes corporativos/año</li>
-          <li>Recolector Automatizado de Evidencia SOC 2 / ISO 27001 / PCI</li>
-          <li>Elegible para Permuta Tecnológica por Créditos Cloud ($0 Cash Netting)</li>
-          <li>Documentación y Contratos con Derechos White-Label</li>
-        </ul>
+        <div>
+          <div class="sku">SKU: MACRO-SAAS-BP-AGENCY-OEM</div>
+          <h3>Consultancy, OEM &amp; Cloud Barter</h3>
+          <div class="price">$19,500 USD/año</div>
+          <p style="color: var(--muted); font-size: 0.9rem;">Habilitado para Consultoras DevSecOps y Permuta B2B (ASC 606).</p>
+          <ul>
+            <li>Derecho de despliegue hasta en 25 clientes corporativos/año</li>
+            <li>Recolector Automatizado de Evidencia SOC 2 / ISO 27001 / PCI</li>
+            <li>Elegible para Permuta Tecnológica por Créditos Cloud ($0 Cash Netting)</li>
+            <li>Documentación y Contratos con Derechos White-Label</li>
+          </ul>
+        </div>
+        <button class="btn" onclick="selectTier('MACRO-SAAS-BP-AGENCY-OEM / BARTER ($19,500 USD FMV)')">Seleccionar OEM / Permuta Cloud</button>
       </div>
+    </div>
+
+    <div id="b2b-order-portal" class="order-box">
+      <h3 style="color: var(--accent-blue); margin-bottom: 0.4rem;">Portal de Emisión de Orden Comercial B2B / Convenio de Permuta (ASC 606)</h3>
+      <p style="color: var(--muted); font-size: 0.9rem;">
+        Complete los datos de su entidad legal para generar la solicitud formal de licenciamiento y el certificado de marca de agua criptográfica (HMAC-SHA256) vinculado a su organización.
+      </p>
+      <div class="form-grid">
+        <div>
+          <label>Nivel de Licencia / Modalidad (SKU)</label>
+          <select id="skuSelect">
+            <option value="MACRO-SAAS-BP-ENTERPRISE ($7,900 USD)">MACRO-SAAS-BP-ENTERPRISE ($7,900 USD)</option>
+            <option value="MACRO-SAAS-BP-TEAM ($2,490 USD)">MACRO-SAAS-BP-TEAM ($2,490 USD)</option>
+            <option value="MACRO-SAAS-BP-AGENCY-OEM ($19,500 USD)">MACRO-SAAS-BP-AGENCY-OEM ($19,500 USD)</option>
+            <option value="MACRO-SAAS-BARTER-NET ($0 Cash / $19,500 FMV Cloud Credits)">MACRO-SAAS-BARTER-NET ($0 Cash / Permuta Créditos Cloud)</option>
+          </select>
+        </div>
+        <div>
+          <label>Razón Social del Adquirente (Legal Entity)</label>
+          <input type="text" id="entityName" placeholder="Ej. Acme FinTech Holdings Inc." />
+        </div>
+        <div>
+          <label>Dominio Corporativo</label>
+          <input type="text" id="corpDomain" placeholder="Ej. acmefintech.com" />
+        </div>
+        <div>
+          <label>Usuario u Organización de GitHub (Para entrega v1.3.0)</label>
+          <input type="text" id="ghHandle" placeholder="Ej. @acmefintech-eng" />
+        </div>
+      </div>
+      <button class="btn" onclick="submitB2BOrder()">Generar Orden de Compra / Solicitud de Permuta en GitHub</button>
     </div>
 
     <div class="crypto-box">
@@ -148,5 +219,41 @@
       Compliance Gatekeeper Status: POL-SEC-OSS-001 APPROVED (0 Copyleft Contamination)
     </div>
   </div>
+
+  <script>
+    function selectTier(val) {
+      const sel = document.getElementById("skuSelect");
+      for (let i = 0; i < sel.options.length; i++) {
+        if (sel.options[i].value.indexOf(val.split(" ")[0]) !== -1) {
+          sel.selectedIndex = i;
+          break;
+        }
+      }
+      document.getElementById("b2b-order-portal").scrollIntoView({ behavior: "smooth" });
+    }
+
+    function submitB2BOrder() {
+      const sku = document.getElementById("skuSelect").value;
+      const entity = document.getElementById("entityName").value.trim() || "[INDICAR RAZÓN SOCIAL]";
+      const domain = document.getElementById("corpDomain").value.trim() || "[INDICAR DOMINIO]";
+      const gh = document.getElementById("ghHandle").value.trim() || "[INDICAR USUARIO GITHUB]";
+
+      const title = encodeURIComponent("[B2B LICENSE ORDER] " + sku + " — " + entity);
+      const body = encodeURIComponent(
+        "### Solicitud Oficial de Licenciamiento Comercial / Permuta B2B\n\n" +
+        "- **SKU Seleccionado:** `" + sku + "`\n" +
+        "- **Razón Social (Legal Entity):** `" + entity + "`\n" +
+        "- **Dominio Corporativo:** `" + domain + "`\n" +
+        "- **Cuenta de GitHub para Recepción del Release Privado `v1.3.0`:** `" + gh + "`\n" +
+        "- **Hash SHA-256 Solicitado:** `b2bd0e86ffbc4d918c878c01bb3ffb93c98ec4b946a84ad7707c4a368d3ec55`\n\n" +
+        "*Declaración: El solicitante acepta los términos del Commercial Architecture & Source Code License Agreement (UCC § 2-316 AS-IS).* "
+      );
+
+      window.open(
+        "https://github.com/guadalupelopezjose96-coder/macro-saas-blueprint-showcase/issues/new?title=" + title + "&body=" + body,
+        "_blank"
+      );
+    }
+  </script>
 </body>
 </html>
